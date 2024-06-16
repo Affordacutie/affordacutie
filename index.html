@@ -4,16 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dive into the world of Affordacutie by Clari, featuring adorable chibi characters, cat stickers, journal and quote stickers, and printable coloring book pages. Discover girl core & kawaii bliss!">
     <title>Affordacutie</title>
     <style>
+        /* General Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #ffd3e0;
-            color: #777;
+            color: #555;
             margin: 0;
             padding: 0;
             background-image: url('https://i.imgur.com/u2wDeiX.png');
             background-size: cover;
+            background-attachment: fixed;
         }
 
         header {
@@ -23,7 +26,6 @@
             background-image: url('https://i.imgur.com/LxHDAcE.png');
             background-size: cover;
             background-position: center;
-            position: relative;
         }
 
         header h1 {
@@ -39,57 +41,80 @@
         .bio p {
             font-size: 18px;
             line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .products {
+        .products, .digital-downloads {
             background-color: #fbd6e1;
             padding: 20px;
             margin: 20px;
             border-radius: 10px;
         }
 
-        .products h2 {
+        .products h2, .digital-downloads h2 {
             color: #ff69b4;
             font-family: 'Segoe Script', Verdana, sans-serif;
             text-align: center;
             margin-bottom: 20px;
         }
 
-        .products .section {
+        .section {
             margin-bottom: 20px;
         }
 
-        .products .section h3 {
+        .section h3 {
             color: #ff69b4;
             font-family: 'Segoe Script', Verdana, sans-serif;
             text-align: center;
             margin-bottom: 10px;
         }
 
-        .products .section .gallery {
+        .gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 10px;
+            gap: 20px;
         }
 
-        .products .section .gallery .item {
+        .item {
             text-align: center;
             margin: 10px;
         }
 
-        .products .section .gallery img {
+        .item h4 {
+            font-size: 16px;
+            color: #ff69b4;
+        }
+
+        .item img {
             max-width: 150px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .products .section .gallery .description {
+        .description {
             background-color: #ffd3e0;
             border: 1px solid #bb9887;
             padding: 10px;
             margin-top: 5px;
             font-size: 14px;
+            text-align: left;
+        }
+
+        .product-link a {
+            display: inline-block;
+            background-color: #ff69b4;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-family: 'Segoe Script', Verdana, sans-serif;
+            transition: background-color 0.3s;
+        }
+
+        .product-link a:hover {
+            background-color: #d34689;
         }
 
         .buttons {
@@ -102,15 +127,10 @@
             background-color: #ff69b4;
             color: #fff;
             padding: 10px 20px;
-            border: none;
             border-radius: 5px;
             margin: 10px;
             text-decoration: none;
             font-family: 'Segoe Script', Verdana, sans-serif;
-        }
-
-        .buttons a.paypal-support {
-            background-color: #ff69b4;
         }
 
         .digital-downloads {
@@ -119,38 +139,6 @@
             text-align: center;
             margin: 20px;
             border-radius: 10px;
-        }
-
-        .digital-downloads h2 {
-            color: #ff69b4;
-            font-family: 'Segoe Script', Verdana, sans-serif;
-            margin-bottom: 20px;
-        }
-
-        .digital-downloads .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .digital-downloads .gallery .item {
-            text-align: center;
-            margin: 10px;
-        }
-
-        .digital-downloads .gallery img {
-            max-width: 150px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .digital-downloads .gallery .description {
-            background-color: #ffd3e0;
-            border: 1px solid #bb9887;
-            padding: 10px;
-            margin-top: 5px;
-            font-size: 14px;
         }
 
         .digital-downloads .download-button {
@@ -162,6 +150,11 @@
             text-decoration: none;
             font-size: 18px;
             display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .digital-downloads .download-button:hover {
+            background-color: #d34689;
         }
 
         footer {
@@ -175,6 +168,18 @@
             text-decoration: none;
             margin: 0 10px;
             font-family: 'Segoe Script', Verdana, sans-serif;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .item img {
+                max-width: 100px;
+            }
         }
     </style>
 </head>
@@ -190,77 +195,208 @@
 
     <div class="products">
         <h2>Products for Sale</h2>
-        <div class="section">
-            <h3>Anime/Chibi Anime Stickers</h3>
-            <div class="gallery">
-                <!-- Repeat this block for 20 images -->
-                <div class="item">
-                    <img src="https://i.imgur.com/anime_chibi_sticker.png" alt="Anime/Chibi Sticker 1">
-                    <div class="description">Description for Anime/Chibi Sticker 1</div>
-                </div>
-                <!-- Add more items as needed up to 20 -->
+
+ <!-- Anime/Chibi Anime Stickers Section -->
+<div class="section">
+    <h3>Anime/Chibi Anime Stickers</h3>
+    <div class="gallery">
+        <!-- Product Items -->
+<div class="item">
+    <h4>Cute Pink Lover Chibi Anime Girl and Kitty Cat</h4>
+    <img src="https://ih1.redbubble.net/image.5561261234.6137/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Cute Pink Lover Chibi Anime Girl and Kitty Cat">
+    <div class="description">Introducing the enchanting Lily Magnolia, embodying the essence of girl core and kawaii anime aesthetics. With her charming pink outfit and adorable kitty cat companion, this sticker is perfect for adding a touch of cuteness to your belongings.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Cute-Pink-Lover-Chibi-Anime-Girl-and-Kitty-Cat-by-Affordacutie/161936137.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Cute Shy Chibi Anime Girl in Pink</h4>
+    <img src="https://ih1.redbubble.net/image.5561785973.4287/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Cute Shy Chibi Anime Girl in Pink">
+    <div class="description">This adorable sticker features a cute, shy chibi anime girl making a shy face against a pink, flower-patterned background. Perfect for those who love shy and charming anime characters!</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Cute-Shy-Chibi-Anime-Girl-in-Pink-by-Affordacutie/161954287.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Cute Chibi Anime Girl and Kitty Cat Inside a Pink Heart Shape Frame</h4>
+    <img src="https://ih1.redbubble.net/image.5561847374.6211/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Cute Chibi Anime Girl and Kitty Cat Inside a Pink Heart Shape Frame">
+    <div class="description">This adorable sticker features Lily Magnolia and her kitty cat inside a heart-shaped frame. The cute chibi anime girl, with flower patterns in her hair, adds a lovely touch to any surface.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Cute-Chibi-Anime-Girl-and-Kitty-Cat-Inside-a-Pink-Heart-Shape-Frame-by-Affordacutie/161956211.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Cute Chibi Anime Girl and Kitty Cat at a Window Saying 'It's a Beautiful Day Today'</h4>
+    <img src="https://ih1.redbubble.net/image.5561873484.6967/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Cute Chibi Anime Girl and Kitty Cat at a Window Saying 'It's a Beautiful Day Today'">
+    <div class="description">This adorable sticker features Lily Magnolia, a cute chibi anime girl, with her kitty cat at a window. The pink aesthetic and kawaii charm perfectly capture the essence of girl core. In a manga bubble, Lily cheerfully says, 'It's a beautiful day today.' This sticker makes a delightful gift for any teen or kid, especially for cat persons who love cute and charming designs.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Cute-Chibi-Anime-Girl-and-Kitty-Cat-at-a-Window-Saying-It-s-a-Beautiful-Day-Today-by-Affordacutie/161956967.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Cute Chibi Anime Girl Holding Kitty Cat like a Baby Saying "Let's Have Some Fun"</h4>
+    <img src="https://ih1.redbubble.net/image.5561895517.7597/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Cute Chibi Anime Girl Holding Kitty Cat like a Baby saying 'Let's have some fun'">
+    <div class="description">This adorable sticker features Lily Magnolia, a cute chibi anime girl, holding her kitty cat like a baby. With her signature space buns adding to her kawaii charm, Lily exudes the essence of girl core. In a manga bubble, she cheerfully says, 'Let's have some fun.' This sticker is the perfect gift for teens, kids, and cat persons who adore cute and charming designs.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Cute-Chibi-Anime-Girl-Holding-Kitty-Cat-like-a-Baby-saying-Let-s-have-some-fun-by-Affordacutie/161957597.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Cute Chibi Anime Girl Saying Hello</h4>
+    <img src="https://ih1.redbubble.net/image.5561909247.7997/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Cute Chibi Anime Girl Saying Hello">
+    <div class="description">This cute sticker features Lily Magnolia, a chibi anime girl with adorable space buns, radiating pink aesthetic and girl core charm. Lily waves with a cheerful 'hello' in a manga bubble, capturing the essence of kawaii greetings. Perfect for teens, kids, and anyone who loves cutie designs, this sticker is a delightful gift to spread smiles and warm hellos.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Cute-Chibi-Anime-Girl-Saying-Hello-by-Affordacutie/161957997.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Pink and Cat Lover Anime Girl</h4>
+    <img src="https://ih1.redbubble.net/image.5555754691.3989/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Pink and Cat Lover Anime Girl">
+    <div class="description">This drawing features a cute anime-style girl framed within a heart-shaped border. The background is predominantly pink with a soft, pastel color palette. The girl has large, expressive brown eyes, and her brown hair is styled in two space buns with bangs. She is wearing a pink off-the-shoulder sweater adorned with a strawberry pattern and a frilly white skirt. She is posing with her hands making peace signs near her cheeks, and she has a cheerful, playful expression. The background includes playful words like "Meow," "Sweet," "Love," and "Purr," along with simple floral and cat illustrations, adding to the overall kawaii (cute) aesthetic. This illustration captures the essence of girl core and teen anime vibes, with its pink aesthetic, chibi character design, and adorable heart-shaped frame, perfect for any fan of cute and kawaii art.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Pink-and-Cat-Lover-Anime-Girl-by-Affordacutie/161763989.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Cute Chibi Anime Girl Eating Vanilla Ice Cream While Sitting on a Bench</h4>
+    <img src="https://ih1.redbubble.net/image.5561861669.6617/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Cute Chibi Anime Girl Eating Vanilla Ice Cream While Sitting on a Bench">
+    <div class="description">This adorable sticker features a cute chibi anime girl enjoying a vanilla ice cream while sitting on a bench. The sweet and serene scene captures the essence of girl core and pink aesthetic, making it a perfect gift for kids and teens. Ideal for decorating notebooks, laptops, and more, this charming sticker is a delightful addition to any collection.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Cute-Chibi-Anime-Girl-Eating-Vanilla-Ice-cream-While-Sitting-on-a-Bench-by-Affordacutie/161956617.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Anime Girl Lily Magnolia Peek-a-Boo Write-On Sign</h4>
+    <img src="https://ih1.redbubble.net/image.5550173001.5260/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Anime Girl Lily Magnolia Peek-a-Boo Write-On Sign">
+    <div class="description">Lily Magnolia, with her charming space buns adorned with a ribbon, shyly peeks out from behind her signboard. Dressed in a delightful green dress with flower patterns, she embodies the essence of anime cuteness and kawaii charm, perfect for teens and kids alike. This customizable write-on sticker is ideal for DIY projects, allowing you to personalize it with your own message. Whether it's matte, glossy, or transparent, this sticker is ready for your creativity. Embrace the girl core spirit and add a touch of Lily's peekaboo playfulness to your notebooks, laptops, and more.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Anime-Girl-Lily-Magnolia-Peek-a-Boo-Write-On-Sign-by-Affordacutie/161585260.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Anime Girl Lily Magnolia Joyful Jump Write-On Sign</h4>
+    <img src="https://ih1.redbubble.net/image.5550170428.5169/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Anime Girl Lily Magnolia Joyful Jump Write-On Sign">
+    <div class="description">Lily Magnolia, an anime girl, is mid-jump, celebrating with a big smile. Customize this sticker with your own message. For matte stickers, use ballpoint pens or permanent markers. For glossy stickers, permanent markers work best. For transparent stickers, oil-based paint markers or permanent markers are recommended. This sticker design brings joy and energy, perfect for decorating notebooks, laptops, and more.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Anime-Girl-Lily-Magnolia-Joyful-Jump-Write-On-Sign-by-Affordacutie/161585688.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Anime Girl Lily Magnolia Purple Bow Write-On Sign</h4>
+    <img src="https://ih1.redbubble.net/image.5550163017.4912/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Anime Girl Lily Magnolia Purple Bow Write-On Sign">
+    <div class="description">Lily Magnolia holds a signboard above her head, wearing light purple attire with a cute bow. Customize this sticker with your own message. For matte stickers, use ballpoint pens or permanent markers. For glossy stickers, permanent markers work best. For transparent stickers, oil-based paint markers or permanent markers are recommended. This sticker adds a touch of charm and elegance, perfect for personalizing your belongings.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Anime-Girl-Lily-Magnolia-Purple-Bow-Write-On-Sign-by-Affordacutie/161585688.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Anime Girl Lily Magnolia Pink Lover Write-On Sign</h4>
+    <img src="https://ih1.redbubble.net/image.5550158756.4767/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Anime Girl Lily Magnolia Pink Lover Write-On Sign">
+    <div class="description">Meet Lily Magnolia, a cute pink lover with two space buns, holding a signboard with charm. Customize this sticker with your own message. For matte stickers, use ballpoint pens or permanent markers. For glossy stickers, permanent markers work best. For transparent stickers, oil-based paint markers or permanent markers are recommended. This sticker design embodies cuteness and sweetness, ideal for anime art enthusiasts.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Anime-Girl-Lily-Magnolia-Pink-Lover-Write-On-Sign-by-Affordacutie/161585688.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Pink Lover Coquette Anime Girl</h4>
+    <img src="https://ih1.redbubble.net/image.5544458177.4994/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Pink Lover Coquette Anime Girl">
+    <div class="description">This drawing is perfect for pink lovers like me. It features a pretty coquette anime girl with pink hair and a lovely outfit. Customize this sticker with your own message. For matte stickers, use ballpoint pens or permanent markers. For glossy stickers, permanent markers work best. For transparent stickers, oil-based paint markers or permanent markers are recommended. This sticker is ideal for adding a touch of cuteness to your belongings.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Pink-Lover-Coquette-Anime-Girl-by-Affordacutie/161585688.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Brown and Beige Journal Design Aesthetic Anime Girl with Basket of Kitty Cats</h4>
+    <img src="https://ih1.redbubble.net/image.5543090866.1604/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Brown and Beige Journal Design Aesthetic Anime Girl with Basket of Kitty Cats">
+    <div class="description">This is a design I made with cats in mind because I love them so much. It features a brown and beige journal aesthetic with an anime girl holding a basket of kitty cats. Customize this sticker with your own message. For matte stickers, use ballpoint pens or permanent markers. For glossy stickers, permanent markers work best. For transparent stickers, oil-based paint markers or permanent markers are recommended. This sticker is perfect for cat lovers and those who appreciate aesthetic designs.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Brown-and-Beige-Journal-Design-Aesthetic-Anime-Girl-with-Basket-of-Kitty-Cats-by-Affordacutie/161585688.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Cute Chibi Vampire Girl Is Ready to Bite</h4>
+    <img src="https://ih1.redbubble.net/image.5542137943.1262/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Cute Chibi Vampire Girl Is Ready to Bite">
+    <div class="description">This is a digital drawing of a cute chibi vampire girl. She has purple hair and adorable wings, ready to charm you. Customize this sticker with your own message. For matte stickers, use ballpoint pens or permanent markers. For glossy stickers, permanent markers work best. For transparent stickers, oil-based paint markers or permanent markers are recommended. This sticker is perfect for fans of chibi art and vampire aesthetics.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Cute-Chibi-Vampire-Girl-Is-Ready-to-Bite-by-Affordacutie/161585688.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<div class="item">
+    <h4>Anime Girl Lily Magnolia Finger Heart Write-On Sign</h4>
+    <img src="https://ih1.redbubble.net/image.5550184446.5688/st,small,845x845-pad,1000x1000,f8f8f8.jpg" alt="Anime Girl Lily Magnolia Finger Heart Write-On Sign">
+    <div class="description">Lily Magnolia sits with her legs crossed, holding a signboard on her lap and making a finger heart gesture. She’s wearing a turquoise spaghetti strap top and dark purple ripped jeans. Customize this sticker with your own message. For matte stickers, use ballpoint pens or permanent markers. For glossy stickers, permanent markers work best. For transparent stickers, oil-based paint markers or permanent markers are recommended. This sticker design embodies the essence of girl core and teens' aesthetic, with Lily's cute fingerheart gesture and trendy ripped jeans. Perfect for DIY enthusiasts and fans of kawaii anime art, this customizable sticker adds a touch of girly charm to any surface.</div>
+    <div class="product-link">
+        <a href="https://www.redbubble.com/i/sticker/Anime-Girl-Lily-Magnolia-Finger-Heart-Write-On-Sign-by-Affordacutie/161585688.EJUG5?asc=u" target="_blank">View Product</a>
+    </div>
+</div>
+
+<!-- Cat Stickers Section -->
+<div class="section">
+    <h3>Cat Stickers</h3>
+    <div class="gallery">
+        <!-- Add .item blocks similar to Anime/Chibi Stickers for Cat Stickers -->
+    </div>
+</div>
+
+<!-- Journal Stickers Section -->
+<div class="section">
+    <h3>Journal Stickers</h3>
+    <div class="gallery">
+        <!-- Add .item blocks similar to Anime/Chibi Stickers for Journal Stickers -->
+    </div>
+</div>
+
+<!-- Quotes Stickers Section -->
+<div class="section">
+    <h3>Quotes Stickers</h3>
+    <div class="gallery">
+        <!-- Add .item blocks similar to Anime/Chibi Stickers for Quotes Stickers -->
+    </div>
+</div>
+
+<div class="buttons">
+    <a href="https://paypal.me/klariri" target="_blank" class="paypal-support">Support Me on PayPal</a>
+    <a href="https://affordacutie.redbubble.com" target="_blank">Visit My Shop</a>
+</div>
+
+<!-- Digital Downloads Section -->
+<div class="digital-downloads">
+    <h2>Digital Downloads for Sale</h2>
+    <div class="gallery">
+        <div class="item">
+            <img src="https://i.imgur.com/digital_download_image_1.png" alt="Digital Download 1">
+            <div class="description">Description for Digital Download 1. Add details about the digital download item, such as resolution, format, and any other relevant information.</div>
+            <div class="product-link">
+                <a href="https://cutieemporium.gumroad.com/l/rahczm" target="_blank">Download and Pay Now</a>
             </div>
-        </div>
-        <div class="section">
-            <h3>Cat Stickers</h3>
-            <div class="gallery">
-                <!-- Repeat this block for 10 images -->
-                <div class="item">
-                    <img src="https://i.imgur.com/cat_sticker.png" alt="Cat Sticker 1">
-                    <div class="description">Description for Cat Sticker 1</div>
-                </div>
-                <!-- Add more items as needed up to 10 -->
-            </div>
-        </div>
-        <div class="section">
-            <h3>Journal Stickers</h3>
-            <div class="gallery">
-                <!-- Repeat this block for 5 images -->
-                <div class="item">
-                    <img src="https://i.imgur.com/journal_sticker.png" alt="Journal Sticker 1">
-                    <div class="description">Description for Journal Sticker 1</div>
-                </div>
-                <!-- Add more items as needed up to 5 -->
-            </div>
-        </div>
-        <div class="section">
-            <h3>Quotes Stickers</h3>
-            <div class="gallery">
-                <!-- Repeat this block for 10 images -->
-                <div class="item">
-                    <img src="https://i.imgur.com/quote_sticker.png" alt="Quote Sticker 1">
-                    <div class="description">Description for Quote Sticker 1</div>
-                </div>
-                <!-- Add more items as needed up to 10 -->
-            </div>
-        </div>
-        <div class="buttons">
-            <a href="https://paypal.me/klariri" target="_blank" class="paypal-support">Support Me on PayPal</a>
-            <a href="https://affordacutie.redbubble.com" target="_blank">Visit My Shop</a>
         </div>
     </div>
+</div>
 
-    <div class="digital-downloads">
-        <h2>Digital Downloads for Sale</h2>
-        <div class="gallery">
-            <!-- Repeat this block for 10 images -->
-            <div class="item">
-                <img src="https://i.imgur.com/digital_download_image_1.png" alt="Digital Download 1">
-                <div class="description">Description for Digital Download 1</div>
-            </div>
-            <!-- Add more items as needed up to 10 -->
-        </div>
-        <a href="https://cutieemporium.gumroad.com/l/rahczm" target="_blank" class="download-button">Download and Pay Now</a>
-    </div>
-
-    <footer>
-        <p>Follow me on social media:</p>
-        <a href="https://pin.it/3bYRgZjTT" target="_blank">Pinterest</a>
-        <a href="https://www.instagram.com/affordacutie?igshid=amVzbGl3ZjIyYjQ0" target="_blank">Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=100070180593658" target="_blank">Facebook</a>
-        <a href="https://www.tiktok.com/@affordacutieshop?_t=8n9GhELfL6u&_r=1" target="_blank">TikTok</a>
-    </footer>
+<footer>
+    <p>Follow me on social media:</p>
+    <a href="https://pin.it/3bYRgZjTT" target="_blank">Pinterest</a>
+    <a href="https://www.instagram.com/affordacutie?igshid=amVzbGl3ZjIyYjQ0" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=100070180593658" target="_blank">Facebook</a>
+    <a href="https://www.tiktok.com/@affordacutieshop?_t=8n9GhELfL6u&_r=1" target="_blank">TikTok</a>
+</footer>
 
 </body>
 
 </html>
+
